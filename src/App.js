@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
 import './App.css';
 import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
-import TestRoute from "./Components/TestRoute";
+import CurrentCourse from "./Components/CurrentCourse";
 import Main from "./Components/Main/Main";
 import {useDispatch, useSelector} from "react-redux";
 import {getCourse} from "./API/AsyncActions/getCourse";
+
 
 function App() {
 
@@ -13,40 +14,40 @@ function App() {
 
     // Redux
     const dispatch = useDispatch()
-    const currency = useSelector(state => state.count)
+    const currency = useSelector(state => state.exchangeReducer.count)
 
     useEffect(() => {
         dispatch(getCourse())
-    }, [])
+    }, [dispatch])
 
     const getCurrentCourse = () => {
         const numValue = inputValue.replace(/[^0-9]/g, "")
         return setGetRes(numValue * currency)
-
     }
-
 
     return (
         <BrowserRouter>
             <div className="App">
-                <Switch>
-                    <Route path='/main' render={() =>
-                        <Main
-                            inputValue={inputValue}
-                            setInputValue={setInputValue}
-                            result={getRes}
-                            getCurrentCourse={getCurrentCourse}
-                        />}
-                    />
-                    <Route exact path='/test' render={props =>
-                        <TestRoute
-                            getRes={getRes}
-                            {...props}
-                            currency={currency}
-                        />}
-                    />
-                    <Redirect to='/main'/>
-                </Switch>
+                <div className="App__wrapper">
+                    <Switch>
+                        <Route path='/main' render={() =>
+                            <Main
+                                inputValue={inputValue}
+                                setInputValue={setInputValue}
+                                result={getRes}
+                                getCurrentCourse={getCurrentCourse}
+                            />}
+                        />
+                        <Route exact path='/test' render={props =>
+                            <CurrentCourse
+                                getRes={getRes}
+                                {...props}
+                                currency={currency}
+                            />}
+                        />
+                        <Redirect to='/main'/>
+                    </Switch>
+                </div>
             </div>
         </BrowserRouter>
     );

@@ -1,0 +1,16 @@
+.button {
+    margin: 0;
+}
+
+.exchangeBlock {
+    display: flex;
+    padding: 1em;
+    background-color: silver;
+}
+.mainTitle {
+    padding: 1em 0;
+}
+.mainResult {
+    font-size: 3rem;
+    padding: .7em 0;
+}

@@ -1,9 +1,7 @@
 import {applyMiddleware, createStore} from "redux";
 import {composeWithDevTools} from "redux-devtools-extension";
 import thunk from "redux-thunk";
-import {exchangeCurrency} from "../Reducers/exchangeCurrency";
-
-// action = {type: 'ADD-COUNT', payload: 5}
+import {rootReducer} from "./index";
 
 
-export const store = createStore(exchangeCurrency, composeWithDevTools(applyMiddleware(thunk)))
+export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
