@@ -7,7 +7,7 @@ const TestRoute = ({...props}) => {
         <div>
             <h2>Current exchange rate</h2>
             <div>
-                <span>EUR</span> = {props.currentCourse}<span> RUB</span>
+                <span>EUR</span> = {props.currency}<span> RUB</span>
 
             </div>
             <MyButton onClick={() => props.history.goBack()}>
