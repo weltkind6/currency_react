@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react";
 import './App.css';
-import MyInput from "./UI/MyInput/MyInput";
-import MyButton from "./UI/MyButton/MyButton";
 import {baseUrl} from "./API/API";
 import axios from "axios";
+import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
+import TestRoute from "./Components/TestRoute";
+import Main from "./Components/Main/Main";
 
 function App() {
 
@@ -22,16 +23,24 @@ function App() {
     }
 
     return (
-        <div className="App">
-            <h1>Currency converter</h1>
-            <MyInput
-                placeholder={'Enter value to convert'}
-                onChange={e => setInputValue(e.target.value)}
-                value={inputValue }
-            />
-            <MyButton onClick={getCurrentCourse}>Get currency</MyButton>
-            <h2>Res: {getRes}</h2>
-        </div>
+        <BrowserRouter>
+            <div className="App">
+                <Switch>
+                    <Route path='/main' render={() =>
+                            <Main
+                                inputValue={inputValue}
+                                setInputValue={setInputValue}
+                                result={getRes}
+                                getCurrentCourse={getCurrentCourse}
+                            />}
+                    />
+                    <Route exact path='/test' render={props =>
+                            <TestRoute getRes={getRes} {...props}/> }
+                    />
+                    <Redirect to='/main'/>
+                </Switch>
+            </div>
+        </BrowserRouter>
     );
 }
 
