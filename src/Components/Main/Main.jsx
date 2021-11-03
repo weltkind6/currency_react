@@ -15,7 +15,7 @@ const Main = ({inputValue, setInputValue, getCurrentCourse, result}) => {
             <MyButton onClick={() => getCurrentCourse()}>
                 Convert
             </MyButton>
-            <h2>= {result} €</h2>
+            <h2>= {result} ₽</h2>
             <NavLink to='/test'>
                 <MyButton>
                     Current rate

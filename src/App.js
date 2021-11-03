@@ -35,7 +35,11 @@ function App() {
                             />}
                     />
                     <Route exact path='/test' render={props =>
-                            <TestRoute getRes={getRes} {...props}/> }
+                            <TestRoute
+                                getRes={getRes}
+                                {...props}
+                                currentCourse={state}
+                            /> }
                     />
                     <Redirect to='/main'/>
                 </Switch>
