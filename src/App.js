@@ -8,17 +8,8 @@ import {getCourse} from "./API/AsyncActions/getCourse";
 
 function App() {
 
-    const [state, setState] = useState()
     const [inputValue, setInputValue] = useState('')
     const [getRes, setGetRes] = useState(0)
-
-    // useEffect(() => {
-    //     axios.get(baseUrl)
-    //         .then(response => setState(response.data.rates.RUB))
-    //         .catch(err => console.log(err, 'Error'))
-    // }, [])
-
-
 
     // Redux
     const dispatch = useDispatch()
@@ -31,8 +22,8 @@ function App() {
     const getCurrentCourse = () => {
         const numValue = inputValue.replace(/[^0-9]/g, "")
         return setGetRes(numValue * currency)
-    }
 
+    }
 
 
     return (

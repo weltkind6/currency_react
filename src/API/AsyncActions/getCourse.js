@@ -1,6 +1,7 @@
 import axios from "axios";
 import {baseUrl} from "../API";
-import {exchangeCurrencyAc} from "../../Redux/store/store";
+import {exchangeCurrencyAc} from "../../Redux/Reducers/exchangeCurrency";
+
 
 export const getCourse = () => {
     return function (dispatch) {
