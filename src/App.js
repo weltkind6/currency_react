@@ -23,6 +23,10 @@ function App() {
     const getCurrentCourse = () => {
         const numValue = inputValue.replace(/[^0-9]/g, "")
         return setGetRes(numValue * currency)
+        // if(inputValue.split(' ').includes('rub')) {
+        //     return setGetRes(numValue * currency)
+        // }
+        // else alert('Enter RUB/rub value!')
     }
 
     return (

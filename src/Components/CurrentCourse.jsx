@@ -6,7 +6,7 @@ const CurrentCourse = ({...props}) => {
 
     return (
         <div>
-            <h2 className={classes.courseTitle}>Current exchange rate</h2>
+            <h2 className={classes.courseTitle}>Current exchange rate:</h2>
             <div className={classes.currentCurrency}>
                 <div>EUR</div>
                 <div>= {props.currency}</div>
