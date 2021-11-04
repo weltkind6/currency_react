@@ -13,10 +13,14 @@ const CurrentCourse = ({...props}) => {
                 <div> RUB</div>
 
             </div>
-            <MyButton myClass={classes.button} onClick={() => props.history.goBack()}>
-                Go back
-            </MyButton>
-
+            <div className={classes.wrapper}>
+                <div className={classes.date}>
+                    <strong>Today is: {props.date}</strong>
+                </div>
+                <MyButton myClass={classes.button} onClick={() => props.history.goBack()}>
+                    Go back
+                </MyButton>
+            </div>
         </div>
     );
 };

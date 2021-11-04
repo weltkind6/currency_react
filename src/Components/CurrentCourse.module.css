@@ -1,11 +1,11 @@
 .button {
-    background-color: rgb(43, 153, 91) !important;
+    background-color: rgb(43, 153, 91);
     border: 1px solid rgb(33, 126, 74);
-    margin-top: 200px;
 }
 
 .button:hover {
-    background-color: #000;
+    background: lightgreen;
+    color: #000;
 }
 
 .courseTitle {
@@ -17,4 +17,7 @@
     display: flex;
     font-size: 3rem;
     justify-content: center;
+}
+.wrapper {
+    margin-top: 150px;
 }

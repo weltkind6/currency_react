@@ -1,5 +1,9 @@
 .button {
     margin: 0;
+    background-color: orange;
+}
+.button:hover {
+    background: orangered;
 }
 
 .exchangeBlock {

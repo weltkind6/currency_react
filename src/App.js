@@ -4,8 +4,7 @@ import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 import CurrentCourse from "./Components/CurrentCourse";
 import Main from "./Components/Main/Main";
 import {useDispatch, useSelector} from "react-redux";
-import {getCourse} from "./API/AsyncActions/getCourse";
-
+import {getCourse, getCurrentDate} from "./API/AsyncActions/getCourse";
 
 function App() {
 
@@ -15,18 +14,18 @@ function App() {
     // Redux
     const dispatch = useDispatch()
     const currency = useSelector(state => state.exchangeReducer.count)
+    const today = useSelector(state => state.getDateReducer.current)
 
     useEffect(() => {
         dispatch(getCourse())
     }, [dispatch])
+    useEffect(() => {
+        dispatch(getCurrentDate())
+    }, [])
 
     const getCurrentCourse = () => {
         const numValue = inputValue.replace(/[^0-9]/g, "")
         return setGetRes(numValue * currency)
-        // if(inputValue.split(' ').includes('rub')) {
-        //     return setGetRes(numValue * currency)
-        // }
-        // else alert('Enter RUB/rub value!')
     }
 
     return (
@@ -47,6 +46,7 @@ function App() {
                                 getRes={getRes}
                                 {...props}
                                 currency={currency}
+                                date={today}
                             />}
                         />
                         <Redirect to='/main'/>
